@@ -36,6 +36,7 @@ public class BaseSteps {
 						System.setProperty(properties.getProperty("driverChrome"), properties.getProperty("pathToDriverChromeLin"));
 //						ChromeOptions option = new ChromeOptions();
 //						option.setHeadless(true);
+//						driver = new ChromeDriver(option);
 						driver = new ChromeDriver();
 						break;
 					case "firefox":

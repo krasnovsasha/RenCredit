@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 public class DepositPage extends BasePage {
 	@FindBy(xpath = "//label[contains(text(),'Сумма вклада')]/parent::div//input")
 	private WebElement amount;
-	@FindBy(xpath = "//div[@class='jq-selectbox__select-text']")
+	@FindBy(id = "period-styler")
 	private WebElement time;
 	@FindBy(xpath = "//input[@name='replenish']")
 	private WebElement monthlyPay;
@@ -48,6 +48,7 @@ public class DepositPage extends BasePage {
 				break;
 			case "На срок":
 				fillData(data);
+//				fillField(time,data);
 				break;
 			case "Ежемесячное пополнение":
 				fillField(monthlyPay, data);
