@@ -6,10 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class DepositPage extends BasePage {
-	@FindBy(xpath = "//span[contains(text(),'Рубли')]")
-	private WebElement currencyRUB;
-	@FindBy(xpath = "//span[contains(text(),'Доллары')]")
-	private WebElement currencyUSA;
 	@FindBy(xpath = "//label[contains(text(),'Сумма вклада')]/parent::div//input")
 	private WebElement amount;
 	@FindBy(xpath = "//div[@class='jq-selectbox__select-text']")
@@ -26,14 +22,11 @@ public class DepositPage extends BasePage {
 	private WebElement result;
 
 	public void chooseCurrency(String currencyName) {
-		switch (currencyName) {
-			case "Рубли":
-				waitClickable(currencyRUB).click();
-				break;
-			case "Доллары":
-				waitClickable(currencyUSA).click();
-				break;
-		}
+		waitClickable(getCurrency(currencyName)).click();
+	}
+
+	private WebElement getCurrency(String name) {
+		return findElement(By.xpath(String.format("//span[contains(text(),'%s')]", name)));
 	}
 
 	public void fillData(String data) {
