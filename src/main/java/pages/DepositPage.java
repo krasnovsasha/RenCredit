@@ -6,13 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class DepositPage extends BasePage {
-	@FindBy(xpath = "//label[contains(text(),'Сумма вклада')]/parent::div//input")
+	@FindBy(xpath = "//input[@name='amount']")
 	private WebElement amount;
 	@FindBy(id = "period-styler")
 	private WebElement time;
 	@FindBy(xpath = "//input[@name='replenish']")
 	private WebElement monthlyPay;
-	@FindBy(xpath = "//span[text()='Ежемесячная капитализация']")
+	@FindBy(xpath = "//span[contains(text(),'капитализация')]")
 	private WebElement capitalization;
 	@FindBy(xpath = "//span[@class = 'js-calc-earned']")
 	private WebElement earned;
@@ -48,7 +48,6 @@ public class DepositPage extends BasePage {
 				break;
 			case "На срок":
 				fillData(data);
-//				fillField(time,data);
 				break;
 			case "Ежемесячное пополнение":
 				fillField(monthlyPay, data);
