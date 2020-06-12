@@ -69,19 +69,15 @@ public class DepositPage extends BasePage {
 	}
 
 	public void checkFields(String fieldName, String value) {
-		String actual;
 		switch (fieldName) {
 			case "Начислено %":
-				actual = earned.getText();
-				Assert.assertEquals("Фактическое значение на соответствует ожидаемому ",value,actual);
+				Assert.assertEquals("Фактическое значение не равно ожидаемому ", value, earned.getText());
 				break;
 			case "Пополнение за 9 месяцев":
-				actual = replenishment.getText();
-				Assert.assertEquals("Фактическое значение на соответствует ожидаемому ",value,actual);
+				Assert.assertEquals("Фактическое значение не равно ожидаемому ", value, replenishment.getText());
 				break;
 			case "К снятию через 9 месяцев":
-				actual = result.getText();
-				Assert.assertEquals("Фактическое значение на соответствует ожидаемому ",value,actual);
+				Assert.assertEquals("Фактическое значение не равно ожидаемому ", value, result.getText());
 				break;
 		}
 	}

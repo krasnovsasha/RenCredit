@@ -19,6 +19,8 @@
         <cucumber-java.version>5.6.0</cucumber-java.version>
         <cucumber-junit.version>5.6.0</cucumber-junit.version>
         <allure-cucumber-jvm.version>2.13.3</allure-cucumber-jvm.version>
+        <allure-maven.version>2.9</allure-maven.version>
+        <reportVersion>2.6.0</reportVersion>
 
         <assertj-core.version>3.8.0</assertj-core.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
@@ -101,7 +103,9 @@
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
+                <version>${allure-maven.version}</version>
                 <configuration>
+                    <reportVersion>${reportVersion}</reportVersion>
                     <reportDirectory>${project.build.directory}/allure-report</reportDirectory>
                 </configuration>
                 <executions>
