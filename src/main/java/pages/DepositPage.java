@@ -38,12 +38,12 @@ public class DepositPage extends BasePage {
 
 	public void fillData(String data) {
 		waitClickable(time).click();
-		WebElement hiddenData = findElement(By.xpath(String.format("//div[@class='jq-selectbox__dropdown']//li[contains(text(),'%s')]", data)));
+		WebElement hiddenData = findElement(By.xpath(String.format("//ul/li[contains(text(),'%s')]", data)));
 		hiddenData.click();
 	}
 
 	public void fillField(WebElement element, String data) {
-		element.click();
+		waitClickable(element).click();
 		element.sendKeys(data);
 		waitAMoment(500);
 	}

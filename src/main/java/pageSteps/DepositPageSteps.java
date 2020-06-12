@@ -3,7 +3,6 @@ package pageSteps;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.When;
 import pages.DepositPage;
-
 import java.util.Map;
 
 public class DepositPageSteps {

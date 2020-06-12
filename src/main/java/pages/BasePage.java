@@ -12,17 +12,20 @@ abstract class BasePage {
 		PageFactory.initElements(BaseSteps.getDriver(), this);
 	}
 
-	protected WebElement waitClickable(WebElement element){
+	protected WebElement waitClickable(WebElement element) {
 		return BaseSteps.wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
+
 	protected WebElement findElement(By by) {
 		return BaseSteps.getDriver().findElement(by);
 	}
-	protected void moveToElement(WebElement element){
+
+	protected void moveToElement(WebElement element) {
 		Actions actions = new Actions(BaseSteps.getDriver());
 		actions.moveToElement(element).perform();
 	}
-	protected void waitAMoment(long mlSeconds){
+
+	protected void waitAMoment(long mlSeconds) {
 		try {
 			Thread.sleep(mlSeconds);
 		} catch (InterruptedException e) {

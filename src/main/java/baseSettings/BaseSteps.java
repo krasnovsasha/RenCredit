@@ -22,7 +22,7 @@ public class BaseSteps {
 		setUpBrowser(System.getProperty("browser", "chrome"));
 		urlMainPage = properties.getProperty("indexURL");
 		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
 		wait = new WebDriverWait(driver, 20);
 		driver.get(urlMainPage);
 	}
@@ -34,9 +34,9 @@ public class BaseSteps {
 				switch (browserName) {
 					case "chrome":
 						System.setProperty(properties.getProperty("driverChrome"), properties.getProperty("pathToDriverChromeLin"));
-						ChromeOptions option=new ChromeOptions();
-						option.setHeadless(true);
-						driver = new ChromeDriver(option);
+//						ChromeOptions option = new ChromeOptions();
+//						option.setHeadless(true);
+						driver = new ChromeDriver();
 						break;
 					case "firefox":
 						System.setProperty(properties.getProperty("driverFirefox"), properties.getProperty("pathToDriverFirefoxLin"));
@@ -48,7 +48,9 @@ public class BaseSteps {
 				switch (browserName) {
 					case "chrome":
 						System.setProperty(properties.getProperty("driverChrome"), properties.getProperty("pathToDriverChromeWin"));
-						driver = new ChromeDriver();
+						ChromeOptions option = new ChromeOptions();
+						option.setHeadless(true);
+						driver = new ChromeDriver(option);
 						break;
 					case "firefox":
 						System.setProperty(properties.getProperty("driverFirefox"), properties.getProperty("pathToDriverFirefoxWin"));
@@ -60,7 +62,9 @@ public class BaseSteps {
 				switch (browserName) {
 					case "chrome":
 						System.setProperty(properties.getProperty("driverChrome"), properties.getProperty("pathToDriverChromeMac"));
-						driver = new ChromeDriver();
+						ChromeOptions option = new ChromeOptions();
+						option.setHeadless(true);
+						driver = new ChromeDriver(option);
 						break;
 					case "firefox":
 						System.setProperty(properties.getProperty("driverFirefox"), properties.getProperty("pathToDriverFirefoxMac"));
