@@ -1,10 +1,9 @@
-package steps;
+package baseSettings;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -14,8 +13,6 @@ public class BaseSteps {
 	public static WebDriverWait wait;
 	private static Properties properties = SingleProperty.getInstance().getProperties();
 	protected static String urlMainPage;
-	private static ChromeOptions options;
-	private static FirefoxOptions optionsFox;
 
 	public static WebDriver getDriver() {
 		return driver;
@@ -25,8 +22,8 @@ public class BaseSteps {
 		setUpBrowser(System.getProperty("browser", "chrome"));
 		urlMainPage = properties.getProperty("indexURL");
 		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
-		wait = new WebDriverWait(driver, 10);
+		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+		wait = new WebDriverWait(driver, 20);
 		driver.get(urlMainPage);
 	}
 
@@ -37,11 +34,13 @@ public class BaseSteps {
 				switch (browserName) {
 					case "chrome":
 						System.setProperty(properties.getProperty("driverChrome"), properties.getProperty("pathToDriverChromeLin"));
-						driver = new ChromeDriver(options);
+						ChromeOptions option=new ChromeOptions();
+						option.setHeadless(true);
+						driver = new ChromeDriver(option);
 						break;
 					case "firefox":
 						System.setProperty(properties.getProperty("driverFirefox"), properties.getProperty("pathToDriverFirefoxLin"));
-						driver = new FirefoxDriver(optionsFox);
+						driver = new FirefoxDriver();
 						break;
 				}
 				break;

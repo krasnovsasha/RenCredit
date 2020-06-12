@@ -4,9 +4,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"pretty"},
-        glue = {"steps"},
+        plugin = {"io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"},
+        glue = {"baseSettings","pageSteps"},
         features = {"src/test/resources/"},
-        tags = {"@checkDeposit"}
+		strict = true,
+		tags = {"@checkDeposit"}
 )
 public class CucumberRunner {}

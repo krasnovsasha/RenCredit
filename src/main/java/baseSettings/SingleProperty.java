@@ -1,4 +1,4 @@
-package steps;
+package baseSettings;
 
 import java.io.FileInputStream;
 import java.io.IOException;
