@@ -73,15 +73,15 @@ public class DepositPage extends BasePage {
 		switch (fieldName) {
 			case "Начислено %":
 				actual = earned.getText();
-				Assert.assertTrue(String.format("Ожидаемое значение %s, фактическое %s", value, actual), visibilityText(earned, value));
+				Assert.assertEquals("Фактическое значение на соответствует ожидаемому ",value,actual);
 				break;
 			case "Пополнение за 9 месяцев":
 				actual = replenishment.getText();
-				Assert.assertTrue(String.format("Ожидаемое значение %s, фактическое %s", value, actual), visibilityText(replenishment, value));
+				Assert.assertEquals("Фактическое значение на соответствует ожидаемому ",value,actual);
 				break;
 			case "К снятию через 9 месяцев":
 				actual = result.getText();
-				Assert.assertTrue(String.format("Ожидаемое значение %s, фактическое %s", value, actual), visibilityText(result, value));
+				Assert.assertEquals("Фактическое значение на соответствует ожидаемому ",value,actual);
 				break;
 		}
 	}

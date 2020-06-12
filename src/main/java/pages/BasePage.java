@@ -29,8 +29,4 @@ abstract class BasePage {
 			e.printStackTrace();
 		}
 	}
-	public Boolean visibilityText(WebElement element, String text) {
-		return BaseSteps.wait.until(ExpectedConditions.textToBePresentInElement(element, text));
-	}
-
 }
