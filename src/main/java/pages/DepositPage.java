@@ -22,7 +22,8 @@ public class DepositPage extends BasePage {
 	private WebElement result;
 
 	public void chooseCurrency(String currencyName) {
-		waitClickable(getCurrency(currencyName)).click();
+		waitUntilElementToBeClickable(getCurrency(currencyName));
+		getCurrency(currencyName).click();
 	}
 
 	private WebElement getCurrency(String name) {
@@ -36,9 +37,10 @@ public class DepositPage extends BasePage {
 	}
 
 	public void fillField(WebElement element, String data) {
-		waitClickable(element).click();
+		waitUntilElementToBeClickable(element);
+		element.click();
 		element.sendKeys(data);
-		waitVisibility(element);
+		waitUntilElementToBeVisible(element);
 	}
 
 	public void fillFields(String fieldName, String data) {

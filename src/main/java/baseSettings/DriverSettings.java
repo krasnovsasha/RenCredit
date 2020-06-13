@@ -1,22 +1,20 @@
 package baseSettings;
 
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.SingleProperty;
 
-import java.time.Duration;
+
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class DriverSettings {
 	private static WebDriver driver;
 	private static WebDriverWait wait;
-	public static FluentWait fluentWait;
+
 	private static Properties properties = SingleProperty.getInstance().getProperties();
 	protected static String urlMainPage;
 
@@ -28,20 +26,12 @@ public class DriverSettings {
 		return wait;
 	}
 
-	public static FluentWait getFluentWait() {
-		return fluentWait;
-	}
-
 	public static void setUp() {
 		setUpBrowser(System.getProperty("browser", "chrome"));
 		urlMainPage = properties.getProperty("indexURL");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
 		wait = new WebDriverWait(driver, 20);
-		fluentWait = new FluentWait<>(driver).withTimeout(Duration.ofMillis(10000))
-				.pollingEvery(Duration.ofMillis(1000))
-				.ignoring(StaleElementReferenceException.class)
-				.withMessage("There is no such element here");
 		driver.get(urlMainPage);
 	}
 
