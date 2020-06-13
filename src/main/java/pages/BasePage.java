@@ -13,7 +13,7 @@ abstract class BasePage {
 	}
 
 	protected WebElement waitClickable(WebElement element) {
-		return DriverSettings.wait.until(ExpectedConditions.elementToBeClickable(element));
+		return DriverSettings.getWait().until(ExpectedConditions.elementToBeClickable(element));
 	}
 
 	protected WebElement findElement(By by) {
@@ -25,11 +25,7 @@ abstract class BasePage {
 		actions.moveToElement(element).perform();
 	}
 
-	protected void waitAMoment(long mlSeconds) {
-		try {
-			Thread.sleep(mlSeconds);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+	protected WebElement waitVisibility(WebElement element) {
+		return (WebElement) DriverSettings.getFluentWait().until(ExpectedConditions.visibilityOf(element));
 	}
 }

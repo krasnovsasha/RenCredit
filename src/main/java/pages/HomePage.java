@@ -12,7 +12,6 @@ public class HomePage extends BasePage {
 	}
 
 	private WebElement optionLeftMenu(String option) {
-		WebElement optionLeft = formHomePage.findElement(By.xpath(String.format("//div[contains(text(),'%s')]/preceding-sibling::a", option)));
-		return optionLeft;
+		return formHomePage.findElement(By.xpath(String.format("//div[contains(text(),'%s')]/preceding-sibling::a", option)));
 	}
 }

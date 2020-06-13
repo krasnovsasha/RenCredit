@@ -38,7 +38,7 @@ public class DepositPage extends BasePage {
 	public void fillField(WebElement element, String data) {
 		waitClickable(element).click();
 		element.sendKeys(data);
-		waitAMoment(500);
+		waitVisibility(element);
 	}
 
 	public void fillFields(String fieldName, String data) {
@@ -58,7 +58,6 @@ public class DepositPage extends BasePage {
 	public void clickCapitalization() {
 		moveToElement(capitalization);
 		waitClickable(capitalization).click();
-		waitAMoment(500);
 	}
 
 	public void checkFields(String fieldName, String value) {
