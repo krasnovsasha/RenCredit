@@ -1,4 +1,4 @@
-package baseSettings;
+package utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,7 +10,7 @@ public class SingleProperty {
 
 	private SingleProperty() {
 		try {
-			properties.load(new FileInputStream("environment/.properties"));
+			properties.load(new FileInputStream("src/main/resources/browser.properties"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

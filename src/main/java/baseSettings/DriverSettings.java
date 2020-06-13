@@ -5,10 +5,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.SingleProperty;
+
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class BaseSteps {
+public class DriverSettings {
 	private static WebDriver driver;
 	public static WebDriverWait wait;
 	private static Properties properties = SingleProperty.getInstance().getProperties();

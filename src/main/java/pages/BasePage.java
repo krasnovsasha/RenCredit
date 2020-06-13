@@ -1,6 +1,6 @@
 package pages;
 
-import baseSettings.BaseSteps;
+import baseSettings.DriverSettings;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -9,19 +9,19 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 abstract class BasePage {
 	public BasePage() {
-		PageFactory.initElements(BaseSteps.getDriver(), this);
+		PageFactory.initElements(DriverSettings.getDriver(), this);
 	}
 
 	protected WebElement waitClickable(WebElement element) {
-		return BaseSteps.wait.until(ExpectedConditions.elementToBeClickable(element));
+		return DriverSettings.wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
 	protected WebElement findElement(By by) {
-		return BaseSteps.getDriver().findElement(by);
+		return DriverSettings.getDriver().findElement(by);
 	}
 
 	protected void moveToElement(WebElement element) {
-		Actions actions = new Actions(BaseSteps.getDriver());
+		Actions actions = new Actions(DriverSettings.getDriver());
 		actions.moveToElement(element).perform();
 	}
 
